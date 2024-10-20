@@ -24,7 +24,7 @@ class ReportRepository implements ReportRepositoryInterface
     }
 
     public function popularReport() {
-        $popularBooks = Book::where('popular_rank','>', 0)->get();
+        $popularBooks = Book::where('popular_rank','>', 0)->get()->take(5);
 
         if (count($popularBooks) > 0) {
             return $this->successResponse($popularBooks, 'Books is retrieved successfully.', 200);
