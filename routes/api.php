@@ -46,7 +46,7 @@ Route::middleware(['auth:api', 'user'])->group(function () {
 
 // Start Admin routes
 
-// Route::middleware(['auth:api', 'admin'])->group(function () {
+Route::middleware(['auth:api', 'admin'])->group(function () {
     // books routes
     Route::post('books', [BookController::class, 'store'])->name('book.store');
     Route::put('books/{id}', [BookController::class, 'update'])->name('book.update');
@@ -55,5 +55,5 @@ Route::middleware(['auth:api', 'user'])->group(function () {
     // reports route
     Route::get('reports/borrowed', [ReportController::class, 'borrowedReport'])->name('reports.borrow');
     Route::get('reports/popular', [ReportController::class, 'popularReport'])->name('reports.popular');
-// });
+});
 // End Admin routes
